@@ -50,8 +50,6 @@ Antes de executar as aplicações, inicie os serviços necessários (PostgreSQL,
     ```
     ./mvnw quarkus:dev -Dquarkus.http.port=8081
     ```
-  - Acesse a interface de desenvolvimento em [http://localhost:8081/q/dev/](http://localhost:8081/q/dev/).
-
 3. Para a **Aplicação de Processamento** (porta 8080):
   - Navegue até o diretório do módulo de processamento (se separado; caso contrário, raiz).
   - Execute:
