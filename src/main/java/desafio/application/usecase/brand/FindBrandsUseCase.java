@@ -1,11 +1,14 @@
 package desafio.application.usecase.brand;
 
-import desafio.application.UseCase;
 import desafio.application.VoidUseCase;
+import desafio.application.exception.NoContentException;
 import desafio.application.usecase.brand.output.BrandOutput;
 import desafio.domain.gateway.BrandGateway;
+import desafio.domain.model.Brand;
 import io.quarkus.cache.CacheResult;
 import jakarta.enterprise.context.ApplicationScoped;
+
+import java.util.List;
 
 @ApplicationScoped
 public class FindBrandsUseCase extends VoidUseCase<BrandOutput> {
@@ -19,7 +22,12 @@ public class FindBrandsUseCase extends VoidUseCase<BrandOutput> {
     @Override
     @CacheResult(cacheName = "brands-cache")
     public BrandOutput execute() {
-        var brands = brandGateway.findAll();
+        final List<Brand> brands = brandGateway.findAll();
+
+        if (brands.isEmpty()) {
+            throw new NoContentException();
+        }
+
         return new BrandOutput(brands);
     }
 }

@@ -1,10 +1,14 @@
 package desafio.application.usecase.vehicle;
 
 import desafio.application.UseCase;
+import desafio.application.exception.NoContentException;
 import desafio.application.usecase.vehicle.output.VehicleOutput;
 import desafio.domain.gateway.VehicleGateway;
+import desafio.domain.model.Vehicle;
 import io.quarkus.cache.CacheResult;
 import jakarta.enterprise.context.ApplicationScoped;
+
+import java.util.List;
 
 @ApplicationScoped
 public class FetchVehiclesUseCase extends UseCase<String, VehicleOutput> {
@@ -19,6 +23,12 @@ public class FetchVehiclesUseCase extends UseCase<String, VehicleOutput> {
     @CacheResult(cacheName = "vehicles-cache")
     public VehicleOutput execute(String brand) {
         validate(brand);
+        List<Vehicle> vehicles = vehicleGateway.findByBrand(brand);
+
+        if (vehicles.isEmpty()) {
+            throw new NoContentException();
+        }
+
         return VehicleOutput.from(vehicleGateway.findByBrand(brand));
     }
 

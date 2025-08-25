@@ -41,8 +41,6 @@ public class QueueInitializer {
                 channel.exchangeDeclare("brand-exchange", "direct", true);
 
                 channel.queueBind("brand-queue", "brand-exchange", "brand-routing-key");
-
-                System.out.println("Filas criadas com sucesso!");
             }
         } catch (Exception e) {
             System.err.println("Erro ao criar filas: " + e.getMessage());
