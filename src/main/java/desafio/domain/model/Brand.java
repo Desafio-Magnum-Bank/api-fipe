@@ -1,46 +1,53 @@
 package desafio.domain.model;
 
-import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
-public class Brand implements Serializable {
-    private static final long serialVersionUID = 1L; 
-    private Long codigo;
-    private String nome;
+public class Brand {
+    private Long code;
+    private String name;
+    private List<Vehicle> vehicles;
 
     public Brand() {
     }
 
-    public Brand(Long codigo, String nome) {
-        isValid(codigo, nome);
-        this.codigo = codigo;
-        this.nome = nome;
+    public Brand(Long code, String name, List<Vehicle> vehicles) {
+        isValid(code, name);
+        this.code = code;
+        this.name = name;
+        this.vehicles = vehicles;
     }
 
-    private void isValid(Long codigo, String nome) {
-        if (codigo == null || codigo <= 0) {
+    public Brand(Long code, String name) {
+        isValid(code, name);
+        this.code = code;
+        this.name = name;
+    }
+
+    public static Brand create(Long code, String name, List<Vehicle> vehicles) {
+        return new Brand(code, name, vehicles);
+    }
+
+    private void isValid(Long code, String name) {
+
+        if (code == null || code <= 0) {
             throw new IllegalArgumentException("Código não pode ser nulo ou vazio");
         }
-        if (nome == null || nome.isEmpty()) {
+        if (name == null || name.isEmpty()) {
             throw new IllegalArgumentException("Nome não pode ser nulo ou vazio");
         }
     }
 
-    // Getters e Setters
-    public Long getCodigo() {
-        return codigo;
+    public Long getCode() {
+        return code;
     }
 
-    public void setCodigo(Long codigo) {
-        this.codigo = codigo;
+    public String getName() {
+        return name;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
+    public List<Vehicle> getVehicles() {
+        return vehicles;
     }
 
     // equals, hashCode e toString
@@ -49,20 +56,21 @@ public class Brand implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Brand brand = (Brand) o;
-        return Objects.equals(codigo, brand.codigo) &&
-                Objects.equals(nome, brand.nome);
+        return Objects.equals(code, brand.code) &&
+                Objects.equals(name, brand.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(codigo, nome);
+        return Objects.hash(code, name);
     }
 
     @Override
     public String toString() {
         return "Brand{" +
-                "codigo='" + codigo + '\'' +
-                ", nome='" + nome + '\'' +
+                "code=" + code +
+                ", name='" + name + '\'' +
+                ", vehicles=" + vehicles +
                 '}';
     }
 }
