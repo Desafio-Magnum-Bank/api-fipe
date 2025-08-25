@@ -1,0 +1,219 @@
+type: collection.insomnia.rest/5.0
+name: fipe-api
+meta:
+  id: wrk_0c8b86b30f784eb4bd615f6240c1fbf9
+  created: 1755707734577
+  modified: 1756144616514
+  description: ""
+collection:
+  - url: http://localhost:8081/api/v1/users/register
+    name: Cadastrar
+    meta:
+      id: req_cd6b7e9465cb46eaa77eb6b53c9f0462
+      created: 1755707757163
+      modified: 1756137987188
+      isPrivate: false
+      description: ""
+      sortKey: -1755983871720
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"username": "jhow",
+        	"name": "Jonathan",
+        	"password": "123"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_40c77253543647fcb37874da9acc4975
+      - name: User-Agent
+        value: insomnia/11.4.0
+        id: pair_56848920115a4195b89780dac20f7c20
+        disabled: true
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8081/api/v1/users/login
+    name: Login
+    meta:
+      id: req_381eebcc468f44a285b33da34c548980
+      created: 1755924897848
+      modified: 1756137983895
+      isPrivate: false
+      description: ""
+      sortKey: -1755983871770
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"username": "admin",
+        	"password": "123"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.4.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8081/api/v1/marcas/init
+    name: Carga Inicial
+    meta:
+      id: req_c06e441cb5204ee8bd2d9afefe22bc82
+      created: 1755983871670
+      modified: 1756138093488
+      isPrivate: false
+      description: ""
+      sortKey: -1755983871670
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.4.0
+        id: pair_ff133d02101349419759aa0fd68420a2
+      - id: pair_b8442bdc78b44bd392c74240588b46d4
+        name: Authorization
+        value: Bearer
+          eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJ1cG4iOiJhZG1pbiIsImdyb3VwcyI6WyJVU0VSIl0sImlhdCI6MTc1NjEzNzgwNiwiZXhwIjoxNzU2MTQxNDA2LCJqdGkiOiI2Y2Q3YzlmNC04MWZlLTQ3ZTQtODRkYi0wM2VlMTIxZDYyMDMifQ.ksmQdLtEJblvY6namnJRBNqFLJZYVDpAonGWxr04XdH_5_XbugovTXVGc8mvVAW1wSPnu1qTmK2TKhJ-Hj2_H1UwO3UhIjwzSAkI4Dunul9y4n8TD8MZ3mWz85rkuyuSBCPOZMuGCAQVjzUSJ7DlCWzBoBRQCNIuyY_EQTruuygmd7RN4LbWrV_yjKkWxVOeO1gKf9uSzXGhVWSIqLR3AZVaFjlh9KENfuaSxAahuBfu-pAxSXA5HM0WaONRwKPtQv7x1y9voYkDfeKX_9xAk_8ESdXUXTNpLJe3eikj5vSJjLx_mwaMaZvAUiA3SkCxME7u8nIMHnND9sWU6GPJ5g
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8081/api/v1/veiculos
+    name: Consultar Veiculos Pela Marca
+    meta:
+      id: req_82a1dce52b17440f8da2e98cb765ea4b
+      created: 1756089326072
+      modified: 1756141072458
+      isPrivate: false
+      description: ""
+      sortKey: -1755954384759
+    method: GET
+    parameters:
+      - id: pair_fd0a846903604a478e8c1bb64955ce84
+        name: marca
+        value: Agrale
+        description: ""
+        disabled: false
+    headers:
+      - name: User-Agent
+        value: insomnia/11.4.0
+        id: pair_ff133d02101349419759aa0fd68420a2
+      - id: pair_b8442bdc78b44bd392c74240588b46d4
+        name: Authorization
+        value: Bearer
+          eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJ1cG4iOiJhZG1pbiIsImdyb3VwcyI6WyJVU0VSIl0sImlhdCI6MTc1NjE0MTA2MCwiZXhwIjoxNzU2MTQ0NjYwLCJqdGkiOiJlMzk4OTEyYi1hYWFiLTQ0NWUtOTA4Ni1lMGNmODZlNDBkOTkifQ.eIIk9tAM7aI6XNPj5bqLZdUJyoKfvJfzWkD-ItryTuAvGuaIzZVNWhE4aLk0IrkpOEP822rfsXKnOHkEiNXxfFePKsUpK2LltxkzFSfvDJWDAwkEcbzWLLwfUXaW50ra4nxrnq3COFXu83_pKXzNuzDLmcMBSG5wRsMgCZ-m2xTSFAipMliy4GMoShswvgZ2mprEKUjQ1HWKOjf1tfF1wMmY_nKSx_XuXLyIaFRhlFuPBrwFsDIYhVZvR8MUqXksHmH3SYPQ7bM9uPI_d80G3GfZIKQeovLueab-IVXolS3ZEr_Xd1FzeNeWq_VIkVBUiQ8ISx93Y7izMkNicz68kQ
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8081/api/v1/marcas
+    name: Consultar Marcas
+    meta:
+      id: req_212fa3cae5e04e98844ad25b53395732
+      created: 1756096053581
+      modified: 1756138443652
+      isPrivate: false
+      description: ""
+      sortKey: -1755969128214.5
+    method: GET
+    parameters:
+      - id: pair_c796124559eb4f089f3976d8c367df03
+        name: marca
+        value: ""
+        description: ""
+        disabled: false
+    headers:
+      - name: User-Agent
+        value: insomnia/11.4.0
+        id: pair_ff133d02101349419759aa0fd68420a2
+      - id: pair_b8442bdc78b44bd392c74240588b46d4
+        name: Authorization
+        value: Bearer
+          eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJ1cG4iOiJhZG1pbiIsImdyb3VwcyI6WyJVU0VSIl0sImlhdCI6MTc1NjEzODQyMiwiZXhwIjoxNzU2MTQyMDIyLCJqdGkiOiI2MjIyMTVhOS0xYjhlLTQ4YTItYmVhZS00MzRlNWM3NTA5M2QifQ.c1DdAbGbyXXXP6CGqAcLXJUuJrstw542QFIhjkcahFouiIbB6p0l_aUUmAAc8ysirybJmf7hw6JY7FEELfFLzyVxRhYkcfgSSYjFfnon-nlePDZ3OP_JDis6sERGriALvy50Jk58B4FFJe9xLNXIV2LiGPUfSswNO0VZLVb9kbK1S7vb_YetCZtFUStH9fdcuzqIN6rIoVOuf4RHF_UVv0VARPMk5r7n3R8XlKEIMBwNwz3gYND4iusquu69jHcsv2boVPtNUa_Wg7QbNSrLJQOsopH-2KJyT3ouctOvhfP3XH21MGS9QBx14g0HdfQ7HPR8FwqLF6Aj5m723X7k5w
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8081/api/v1/veiculos/4
+    name: Alterar Veiculo
+    meta:
+      id: req_82e6f5e403114ec79cfdacfabd096336
+      created: 1756101875343
+      modified: 1756138181038
+      isPrivate: false
+      description: ""
+      sortKey: -1755816327505.5
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"nome": "Celta",
+        	"observacao": "11sasdasdaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_2f27483bb6e44d30ac2ceae1f16f48ff
+      - name: User-Agent
+        value: insomnia/11.4.0
+        id: pair_2b8781f526464e87824fdc87b8b7cb38
+      - id: pair_19977e826b624292a9eab2f05dd7224b
+        name: Authorization
+        value: Bearer
+          eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoiYWRtaW4iLCJ1cG4iOiJhZG1pbiIsImdyb3VwcyI6WyJVU0VSIl0sImlhdCI6MTc1NjEzNzgwNiwiZXhwIjoxNzU2MTQxNDA2LCJqdGkiOiI2Y2Q3YzlmNC04MWZlLTQ3ZTQtODRkYi0wM2VlMTIxZDYyMDMifQ.ksmQdLtEJblvY6namnJRBNqFLJZYVDpAonGWxr04XdH_5_XbugovTXVGc8mvVAW1wSPnu1qTmK2TKhJ-Hj2_H1UwO3UhIjwzSAkI4Dunul9y4n8TD8MZ3mWz85rkuyuSBCPOZMuGCAQVjzUSJ7DlCWzBoBRQCNIuyY_EQTruuygmd7RN4LbWrV_yjKkWxVOeO1gKf9uSzXGhVWSIqLR3AZVaFjlh9KENfuaSxAahuBfu-pAxSXA5HM0WaONRwKPtQv7x1y9voYkDfeKX_9xAk_8ESdXUXTNpLJe3eikj5vSJjLx_mwaMaZvAUiA3SkCxME7u8nIMHnND9sWU6GPJ5g
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_1e9e755ff21f959a0bc406b0d7b4e87af52f7ee1
+    created: 1755707734584
+    modified: 1755707734584
+environments:
+  name: Base Environment
+  meta:
+    id: env_1e9e755ff21f959a0bc406b0d7b4e87af52f7ee1
+    created: 1755707734580
+    modified: 1755707734580
+    isPrivate: false
