@@ -7,4 +7,6 @@ import java.util.List;
 public interface BrandGateway {
 
     List<Brand> fetchBrands();
+
+    List<Brand> findAll();
 }
