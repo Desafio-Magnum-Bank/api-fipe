@@ -54,6 +54,12 @@ public class VehicleController {
             )
     })
     public Response findBrandsAndDetails(@QueryParam("marca") String brand) {
+        if (brand == null || brand.isBlank()) {
+            return Response.status(Response.Status.BAD_REQUEST)
+                    .entity("{\"error\": \"Parâmetro 'marca' é obrigatório\"}")
+                    .build();
+        }
+
         VehicleOutput output = fetchVehiclesUseCase.execute(brand);
         VehicleResponse response = VehicleResponse.from(output);
         return Response.ok(response).build();

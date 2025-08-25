@@ -19,6 +19,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
+import org.eclipse.microprofile.openapi.annotations.media.ExampleObject;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
@@ -43,14 +44,21 @@ public class UserController {
     @PermitAll
     @Path("/login")
     @Operation(
-            summary = "Login de usuário",
-            description = "Realiza o login do usuário com username e senha"
+            summary = "Login de usuário"
     )
     @APIResponses({
             @APIResponse(
                     responseCode = "200",
                     description = "Login realizado com sucesso",
-                    content = @Content(schema = @Schema(implementation = UserResponse.class))
+                    content = @Content(
+                            schema = @Schema(implementation = UserResponse.class),
+                            examples = {
+                                    @ExampleObject(
+                                            name = "DefaultUser",
+                                            value = "{ \"username\": \"admin\", \"password\": \"123\" }"
+                                    )
+                            }
+                    )
             ),
             @APIResponse(
                     responseCode = "401",
