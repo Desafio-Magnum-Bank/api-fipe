@@ -1,6 +1,7 @@
 package desafio.domain.exception;
 
 import desafio.application.exception.ConflictException;
+import jakarta.ws.rs.NotFoundException;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.ExceptionMapper;
 import jakarta.ws.rs.ext.Provider;
@@ -26,6 +27,11 @@ public class HandleException implements ExceptionMapper<Exception> {
         }
         if (e instanceof ConflictException) {
             return Response.status(Response.Status.CONFLICT)
+                    .entity(e.getMessage())
+                    .build();
+        }
+        if (e instanceof NotFoundException) {
+            return Response.status(Response.Status.NOT_FOUND)
                     .entity(e.getMessage())
                     .build();
         }
